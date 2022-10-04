@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <script src="https://kit.fontawesome.com/8e7b84f57c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="calculator">
+    <div class="toggle-wrapper">
+      <input type="checkbox" id="toggleTheme" class="toggle-checkbox">
+      <label for="toggleTheme" class="toggle-label">
+        <i class='fas fa-sun'></i>
+        <i class="fas fa-moon"></i>
+      </label>
+    </div>
+    <div class="results">
+      <div class="operation-display"></div>
+      <div class="main-display">0</div>
+    </div>
+    <div class="buttons">
+      <button type="button" data-target="clear" data-key="Delete" class="btn-accent">C</button>
+      <button type="button" data-target="backspace" data-key="Backspace" class="btn-accent"><i
+          class="fa-solid fa-delete-left"></i></button>
+      <button type="button" data-target="percentage" data-key="%" class="btn-accent"><i
+          class="fa-solid fa-percent"></i></button>
+      <button type="button" data-target="operator" data-operation="divide" data-key="/" class="btn-secondary"><i
+          class="fa-solid fa-divide"></i></button>
+      <button type="button" data-target="operand" data-key="7">7</button>
+      <button type="button" data-target="operand" data-key="8">8</button>
+      <button type="button" data-target="operand" data-key="9">9</button>
+      <button type="button" data-target="operator" data-operation="multiply" data-key="*" class="btn-secondary"><i
+          class="fa-solid fa-xmark"></i></button>
+      <button type="button" data-target="operand" data-key="4">4</button>
+      <button type="button" data-target="operand" data-key="5">5</button>
+      <button type="button" data-target="operand" data-key="6">6</button>
+      <button type="button" data-target="operator" data-operation="subtract" data-key="-" class="btn-secondary"><i
+          class="fa-solid fa-minus"></i></button>
+      <button type="button" data-target="operand" data-key="1">1</button>
+      <button type="button" data-target="operand" data-key="2">2</button>
+      <button type="button" data-target="operand" data-key="3">3</button>
+      <button type="button" data-target="operator" data-operation="add" data-key="+" class="btn-secondary"><i
+          class="fa-solid fa-plus"></i></button>
+      <button type="button" data-target="operand" data-key="0" class="column-span-2">0</button>
+      <button type="button" data-target="operand" data-key=".">.</button>
+      <button type="button" data-target="result" data-key="Enter" class="btn-secondary"><i
+          class="fa-solid fa-equals"></i></button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
