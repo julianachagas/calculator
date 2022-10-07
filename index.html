@@ -13,45 +13,49 @@
 <body>
   <div class="calculator">
     <div class="toggle-wrapper">
-      <input type="checkbox" id="toggleTheme" class="toggle-checkbox">
+      <input type="checkbox" id="toggleTheme" class="toggle-checkbox" aria-label="Switch to dark theme">
       <label for="toggleTheme" class="toggle-label">
         <i class='fas fa-sun'></i>
         <i class="fas fa-moon"></i>
       </label>
     </div>
-    <div class="results">
+    <div class="output">
       <div class="operation-display"></div>
       <div class="main-display">0</div>
     </div>
     <div class="buttons">
-      <button type="button" data-target="clear" data-key="Delete" class="btn-accent">C</button>
-      <button type="button" data-target="backspace" data-key="Backspace" class="btn-accent"><i
-          class="fa-solid fa-delete-left"></i></button>
-      <button type="button" data-target="percentage" data-key="%" class="btn-accent"><i
+      <button type="button" data-target="clear" data-key="Delete" class="btn-text-secondary"
+        aria-label="Clear">AC</button>
+      <button type="button" data-target="backspace" data-key="Backspace" class="btn-text-secondary"
+        aria-label="backspace"><i class="fa-solid fa-delete-left"></i></button>
+      <button type="button" data-target="percentage" data-key="%" class="btn-text-secondary"><i
           class="fa-solid fa-percent"></i></button>
-      <button type="button" data-target="operator" data-operation="divide" data-key="/" class="btn-secondary"><i
-          class="fa-solid fa-divide"></i></button>
+      <button type="button" data-target="operator" data-operation="divide" data-key="/" class="btn-bg-secondary"
+        aria-label="divide"><i class="fa-solid fa-divide"></i></button>
       <button type="button" data-target="operand" data-key="7">7</button>
       <button type="button" data-target="operand" data-key="8">8</button>
       <button type="button" data-target="operand" data-key="9">9</button>
-      <button type="button" data-target="operator" data-operation="multiply" data-key="*" class="btn-secondary"><i
-          class="fa-solid fa-xmark"></i></button>
+      <button type="button" data-target="operator" data-operation="multiply" data-key="*" class="btn-bg-secondary"
+        aria-label="multiply"><i class="fa-solid fa-xmark"></i></button>
       <button type="button" data-target="operand" data-key="4">4</button>
       <button type="button" data-target="operand" data-key="5">5</button>
       <button type="button" data-target="operand" data-key="6">6</button>
-      <button type="button" data-target="operator" data-operation="subtract" data-key="-" class="btn-secondary"><i
-          class="fa-solid fa-minus"></i></button>
+      <button type="button" data-target="operator" data-operation="subtract" data-key="-" class="btn-bg-secondary"
+        aria-label="minus"><i class="fa-solid fa-minus"></i></button>
       <button type="button" data-target="operand" data-key="1">1</button>
       <button type="button" data-target="operand" data-key="2">2</button>
       <button type="button" data-target="operand" data-key="3">3</button>
-      <button type="button" data-target="operator" data-operation="add" data-key="+" class="btn-secondary"><i
+      <button type="button" data-target="operator" data-operation="add" data-key="+" class="btn-bg-secondary"><i
           class="fa-solid fa-plus"></i></button>
       <button type="button" data-target="operand" data-key="0" class="column-span-2">0</button>
       <button type="button" data-target="operand" data-key=".">.</button>
-      <button type="button" data-target="result" data-key="Enter" class="btn-secondary"><i
+      <button type="button" data-target="result" data-key="Enter" class="btn-bg-secondary"><i
           class="fa-solid fa-equals"></i></button>
     </div>
   </div>
+  <footer>
+    <p>Made with &#9825; by <a href="https://github.com/julianachagas" target="_blank">Juliana Chagas</a></p>
+  </footer>
   <script src="script.js"></script>
 </body>
 
