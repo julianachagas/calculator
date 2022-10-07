@@ -166,33 +166,27 @@ class Calculator {
   result() {
     // if operation is not defined, don't do anything
     if (!this.operationType) return;
-    // define num2 depending on the user previous actions
-    // if user presses equals straight after an operation without entering a second number
+    // the value of num2 depends on the user previous actions:
     if (this.operatorPressed) {
-      // second number will be equal to the first number, e.g: 5+= 10
+      // if user presses "=" straight after an operation without entering a second number, num2 will be equal to the first number, e.g: 5+= 10
       this.num2 = this.num1;
-    } else if (!this.currentNumberUpdated) {
-      // if user didn't use the percentage button to update the display number
+    } else if (this.currentNumberUpdated || this.isResultDisplayed()) {
+      // if num1 was updated via % button or there is a result on the display, get the number and assign to num1, num2 stays the same, just update num1
+      //e.g: 1+2=3, display: =3, user presses result: num1 = 3, num2 = 2 (display: =5)
       let display = this.mainDisplay.textContent;
-      // if there isn't a result on the display
-      if (!this.isResultDisplayed()) {
-        // get the number on the display to be the second operand
-        this.num2 = +display;
-      } else {
-        // if there's a result, get the displayed number and assign to num1
-        //e.g: 1+2=3, display: =3, user presses result again: =5 (num1 = 3, num2 = 2)
-        if (display.includes('Error')) return;
-        this.num1 = +display.replace('= ', '');
-      }
+      if (display.includes('Error')) return;
+      this.num1 = +display.replace('= ', '');
+    } else {
+      // get the number on the display to be the second operand
+      this.num2 = +this.mainDisplay.textContent;
     }
-    // now we have num2 defined, let's do the calculation
+
     const result = this.calculate();
     if (result === false) {
       this.updateMainDisplay(`= Error`);
       return;
     }
     this.displayOperation(this.num1, this.operationType, this.num2);
-    // display result
     this.updateMainDisplay(`= ${round(result)}`);
     this.operatorPressed = false;
     this.currentNumberUpdated = false;
