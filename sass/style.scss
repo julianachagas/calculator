@@ -1,0 +1,167 @@
+@forward './reset';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+body {
+  --bg-color: rgba(107, 141, 219, 0.2);
+  --primary-color: rgb(255, 255, 255);
+  --secondary-color: rgb(107, 141, 219);
+  --accent-color: rgb(240, 153, 53);
+  --main-text: rgb(70, 70, 70);
+  --highlight-text: #cc4c77;
+  --toggle-wrapper: rgb(59, 59, 59);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  display: grid;
+  place-items: center;
+  transition: background 0.3s linear;
+  background: var(--bg-color);
+}
+
+body.dark {
+  --bg-color:rgb(22, 22, 22);
+  --primary-color: rgb(39, 39, 39);
+  --main-text: rgb(231, 231, 231);
+  .calculator {
+    box-shadow: none;    
+  }
+  .output {
+    border-bottom: 1px solid rgb(70, 70, 70);
+  }
+  footer {
+    color: rgb(210, 210, 210);
+  }
+}
+
+.column-span-2 {
+  grid-column: span 2;
+}
+
+// toggle theme
+$toggle-wrapper-width: 6rem;
+$toggle-wrapper-height: 3rem;
+$toggle-circle: 1.9rem;
+$toggle-circle-left: 0.5rem;
+$toggle-circle-offset: calc(
+  $toggle-wrapper-width - $toggle-circle-left * 2 - $toggle-circle
+);
+
+.toggle-wrapper {
+  position: relative;
+  background-color: var(--toggle-wrapper);
+  width: $toggle-wrapper-width;
+  height: $toggle-wrapper-height;
+  margin: 1rem auto;
+  border-radius: 50px;
+  .toggle-checkbox,
+  .toggle-label {
+    width: 100%;
+    height: 100%;
+  }
+  .toggle-checkbox {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    user-select: none;
+  }
+  .toggle-label {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .toggle-label::after {
+    content: '';
+    width: $toggle-circle;
+    height: $toggle-circle;
+    position: absolute;
+    left: $toggle-circle-left;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    transition: transform 0.3s linear;
+    cursor: pointer;
+  }
+  i {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+  }
+  .toggle-checkbox:checked + .toggle-label::after {
+    transform: translateX($toggle-circle-offset);
+  }
+}
+
+.calculator {
+  width: min(350px, 90%);
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.output {
+  padding: 1rem 2rem;
+  height: 20rem;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgb(212, 212, 212);
+  word-break: break-all;
+  .main-display {
+    font-size: 3.6rem;
+    color: var(--main-text);
+  }
+  .operation-display {
+    font-size: 2.4rem;
+    color: var(--highlight-text);
+  }
+}
+
+.buttons {
+  padding: 2.5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 5rem);
+  grid-template-rows: repeat(5, 5rem);
+  justify-content: space-between;
+  gap: 2rem 0;
+  font-size: 2.6rem;
+  button {
+    color: var(--main-text);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    &:hover:not(.btn-bg-secondary) {
+      color: var(--highlight-text);
+      i {
+        color: var(--highlight-text);
+      }
+    }
+  }
+  .btn-text-secondary {
+    color: var(--secondary-color);
+    i {
+      color: var(--secondary-color);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  .btn-bg-secondary {
+    font-size: 2.4rem;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    &:hover {
+      color: #fff;
+      background-color: var(--highlight-text);
+    }
+  }
+}
+
+footer {
+  color: var(--main-text);
+  align-self: end;
+  padding: 1rem;
+  font-size: 1.5rem;
+  a:hover {
+    text-decoration: underline;
+  }
+}
