@@ -13,16 +13,18 @@ body {
   font-weight: 500;
   display: grid;
   place-items: center;
+  gap: 4rem;
   transition: background 0.3s linear;
   background: var(--bg-color);
+  padding-top: 4rem;
 }
 
 body.dark {
-  --bg-color:rgb(22, 22, 22);
+  --bg-color: rgb(22, 22, 22);
   --primary-color: rgb(39, 39, 39);
   --main-text: rgb(231, 231, 231);
   .calculator {
-    box-shadow: none;    
+    box-shadow: none;
   }
   .output {
     border-bottom: 1px solid rgb(70, 70, 70);
