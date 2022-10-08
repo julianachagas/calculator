@@ -100,11 +100,11 @@ class Calculator {
       if (displayStr.includes('Error')) return;
       // if there's a result on the display, get the result value and assign it to num1
       displayStr = displayStr.replace('= ', '');
-      this.num1 = +displayStr / 100;
+      this.num1 = round(+displayStr / 100);
       this.updateOperationDisplay('');
       this.currentNumberUpdated = true;
     }
-    this.updateMainDisplay(+displayStr / 100);
+    this.updateMainDisplay(round(+displayStr / 100));
   }
 
   backspace() {
@@ -120,7 +120,7 @@ class Calculator {
   calculate() {
     return this.operationType === 'divide' && this.num2 === 0
       ? false
-      : operations[this.operationType](this.num1, this.num2);
+      : round(operations[this.operationType](this.num1, this.num2));
   }
 
   operation(operationType) {
@@ -187,7 +187,7 @@ class Calculator {
       return;
     }
     this.displayOperation(this.num1, this.operationType, this.num2);
-    this.updateMainDisplay(`= ${round(result)}`);
+    this.updateMainDisplay(`= ${result}`);
     this.operatorPressed = false;
     this.currentNumberUpdated = false;
   }
