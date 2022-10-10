@@ -30,7 +30,7 @@ const operationSymbols = {
 
 const round = num => {
   let result = Math.round((num + Number.EPSILON) * 10000) / 10000;
-  if (result.toString().length > 13) {
+  if (result.toString().length > 12) {
     result = result.toExponential(3);
   }
   return result;
@@ -73,8 +73,8 @@ class Calculator {
     if (str === '.' && displayStr.includes('.')) {
       return;
     }
-    // add numbers to the display if string length < 13
-    if (displayStr.length < 13) this.mainDisplay.textContent += str;
+    // add numbers to the display if string length < 12, display limit: 12 numbers
+    if (displayStr.length < 12) this.mainDisplay.textContent += str;
   }
 
   isResultDisplayed() {
